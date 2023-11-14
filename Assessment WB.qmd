@@ -9,7 +9,7 @@ project:
   output-dir: docs
 ---
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(radiant.data)
 library (spatstat)
@@ -20,7 +20,7 @@ library(dineq)
 library(collapse)
 ```
 
-##
+
 ```{r}
 tag      <- "202311081903"
 base_url <- "https://github.com/randrescastaneda/pub_data/raw/"
@@ -147,7 +147,7 @@ outliers <- wdi |>
 
 ```
 
-## SIMULATED DATA
+# SIMULATED DATA
 
 ```{r}
   l_svy <-
@@ -226,7 +226,7 @@ outliers <- wdi |>
       print(svy_2001_2010_lorenz )
 ```
 
-## 6. Gini coefficient
+# 6. Gini coefficient
 
 ```{r}
 gini <- l_svy |>
@@ -262,7 +262,7 @@ gini_final <- gini |>
 print(gini_final)
 ```
 
-##GRAPH
+# GRAPH - GINI
 
 ```{r}
 graph <- ggplot(gini_final, aes(x = year, y = gini)) +
