@@ -1,10 +1,8 @@
-
 ---
-title: "Assessment - WB"
-Author: Nathalia Maya-Scarpeta
+title: Assessment WB
+Author: Nathalia Maya Scarpeta
 format: html
 editor: visual
-quarto publish gh-pages document.qmd
 ---
 
 ```{r}
@@ -257,19 +255,22 @@ md_compute_gini <- function(welfare, weight) {
 gini_final <- gini |>
   group_by(year) |>
   summarise(gini = md_compute_gini(income, weight))
-head(results_gini)
+head(gini_final)
 ```
 
 ##GRAPH
 
 ```{r}
-extra4 <- ggplot(gini_final, aes(x = year, y = gini)) +
+graph <- ggplot(gini_final, aes(x = year, y = gini)) +
   geom_line() +
   geom_point() +
   theme_minimal()
 
-print(extra4)
+print(graph)
 
 ```
+
+
+quarto publish gh-pages document.qmd
 
 
