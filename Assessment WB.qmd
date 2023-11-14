@@ -1,5 +1,5 @@
 ---
-title: Assessment WB
+title: R skills Assessment WB - Nathalia Maya Scarpeta
 Author: Nathalia Maya Scarpeta
 format: html
 editor: visual
@@ -21,7 +21,7 @@ library(collapse)
 ```
 
 
-```{r}
+```{r warning=FALSE}
 tag      <- "202311081903"
 base_url <- "https://github.com/randrescastaneda/pub_data/raw/"
 data_url <- paste0(base_url, tag, "/data/Rtest1/")
@@ -32,7 +32,7 @@ wdi <-
 
 # 1. Summary statistics of GDP per capita by region
 
-```{r}
+```{r warning=FALSE}
 wdi_result_1 <- readr::read_rds(paste0(data_url, "wdi_summ_out.Rds"))
 
 GDP_byregion <- wdi |>
@@ -50,7 +50,7 @@ print(GDP_byregion)
 
 ```
 # 2. Aggregate stats
-```{r}
+```{r warning=FALSE}
 # Group by region and date, calculate population-weighted statistics
 wdi_result_2 <- readr::read_rds(paste0(data_url, "wdi_agg_out.Rds"))
 
@@ -98,7 +98,7 @@ print(aggregate_estimates)
 ```
 # 3. Find outliers 
 
-```{r}
+```{r warning=FALSE}
 wdi_outliers_out <- readr::read_rds(paste0(data_url, "wdi_outliers_out.Rds"))
 
 outliers <- wdi |>
@@ -131,7 +131,7 @@ outliers <- wdi |>
 
 #Graph
 
-```{r}
+```{r warning=FALSE}
   ggplot(outliers) +
     geom_ribbon(
       aes(x = date, ymin = mean_lifeex - 2.5 * sd_lifeex, ymax = mean_lifeex + 2.5 * sd_lifeex),
@@ -149,7 +149,7 @@ outliers <- wdi |>
 
 # SIMULATED DATA
 
-```{r}
+```{r warning=FALSE}
   l_svy <-
     readr::read_rds(paste0(data_url, "svy_sim_in1.Rds"))
   
@@ -186,7 +186,7 @@ outliers <- wdi |>
 ```
 # GRAPH
      
-```{r}
+```{r warning=FALSE}
      ggplot(poverty_indicators, aes(group = poverty_line)) +
        geom_line(aes(x = Year, y = headcount, color = factor (poverty_line ))) +
        geom_point(aes(x = Year, y = headcount, color = factor (poverty_line ))) +
@@ -196,7 +196,7 @@ outliers <- wdi |>
 # 5. Lorenz curve
 
 
-```{r}
+```{r warning=FALSE}
      svy_2001_2010_lorenz <- svy_2001_2010 |>
        select(Year, income, weight) |>
        group_by(Year) |>
@@ -228,7 +228,7 @@ outliers <- wdi |>
 
 # 6. Gini coefficient
 
-```{r}
+```{r warning=FALSE}
 gini <- l_svy |>
   map_df(~ as.data.frame(.x), .id = "year") |>
   mutate(year = as.numeric(gsub("[A-Za-z]", "", year)))
@@ -264,7 +264,7 @@ print(gini_final)
 
 # GRAPH - GINI
 
-```{r}
+```{r warning=FALSE}
 graph <- ggplot(gini_final, aes(x = year, y = gini)) +
   geom_line() +
   geom_point() +
