@@ -231,18 +231,23 @@ The following object is masked from 'package:stats':
 <pre><code>`summarise()` has grouped output by 'region'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(GDP_byregion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(GDP_byregion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-# Groups:   region [1]
-  region               year     N  Mean    SD   Min    Max
-  &lt;chr&gt;               &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-1 East Asia &amp; Pacific  1990    22 4913. 8497.  582. 32846.
-2 East Asia &amp; Pacific  1991    22 5105. 8691.  579. 33870.
-3 East Asia &amp; Pacific  1992    22 5291. 8667.  597. 34049.
-4 East Asia &amp; Pacific  1993    22 5483. 8576.  635. 33783.
-5 East Asia &amp; Pacific  1994    22 5740. 8619.  669. 34054.
-6 East Asia &amp; Pacific  1995    22 6037. 8796.  709. 34868.</code></pre>
+<pre><code># A tibble: 218 × 7
+# Groups:   region [7]
+   region               year     N  Mean    SD   Min    Max
+   &lt;chr&gt;               &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1 East Asia &amp; Pacific  1990    22 4913. 8497.  582. 32846.
+ 2 East Asia &amp; Pacific  1991    22 5105. 8691.  579. 33870.
+ 3 East Asia &amp; Pacific  1992    22 5291. 8667.  597. 34049.
+ 4 East Asia &amp; Pacific  1993    22 5483. 8576.  635. 33783.
+ 5 East Asia &amp; Pacific  1994    22 5740. 8619.  669. 34054.
+ 6 East Asia &amp; Pacific  1995    22 6037. 8796.  709. 34868.
+ 7 East Asia &amp; Pacific  1996    22 6340. 9011.  746. 35879.
+ 8 East Asia &amp; Pacific  1997    22 6538. 9045.  782. 36145.
+ 9 East Asia &amp; Pacific  1998    22 6449. 8823.  817. 36099.
+10 East Asia &amp; Pacific  1999    22 6635. 8836.  875. 37476.
+# ℹ 208 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -295,18 +300,23 @@ The following object is masked from 'package:stats':
 <pre><code>`summarise()` has grouped output by 'region'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aggregate_estimates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(aggregate_estimates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-# Groups:   region [1]
-  estimate region               date        pop lifeex   gdp pov_intl
-  &lt;chr&gt;    &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-1 mean     East Asia &amp; Pacific  1990 1754166013   68.2 4913.    0.590
-2 mean     East Asia &amp; Pacific  1991 1779284317   68.4 5105.    0.573
-3 mean     East Asia &amp; Pacific  1992 1802946756   68.9 5291.    0.550
-4 mean     East Asia &amp; Pacific  1993 1825777375   69.3 5483.    0.523
-5 mean     East Asia &amp; Pacific  1994 1848480100   69.6 5740.    0.483
-6 mean     East Asia &amp; Pacific  1995 1870755748   70.0 6037.    0.450</code></pre>
+<pre><code># A tibble: 1,090 × 7
+# Groups:   region [7]
+   estimate region               date        pop lifeex   gdp pov_intl
+   &lt;chr&gt;    &lt;chr&gt;               &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+ 1 mean     East Asia &amp; Pacific  1990 1754166013   68.2 4913.    0.590
+ 2 mean     East Asia &amp; Pacific  1991 1779284317   68.4 5105.    0.573
+ 3 mean     East Asia &amp; Pacific  1992 1802946756   68.9 5291.    0.550
+ 4 mean     East Asia &amp; Pacific  1993 1825777375   69.3 5483.    0.523
+ 5 mean     East Asia &amp; Pacific  1994 1848480100   69.6 5740.    0.483
+ 6 mean     East Asia &amp; Pacific  1995 1870755748   70.0 6037.    0.450
+ 7 mean     East Asia &amp; Pacific  1996 1892721009   70.3 6340.    0.410
+ 8 mean     East Asia &amp; Pacific  1997 1914534267   70.7 6538.    0.408
+ 9 mean     East Asia &amp; Pacific  1998 1935514675   71.1 6449.    0.417
+10 mean     East Asia &amp; Pacific  1999 1955084080   71.3 6635.    0.386
+# ℹ 1,080 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -339,18 +349,23 @@ The following object is masked from 'package:stats':
 <span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>         </span>
 <span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 24
-# Groups:   date [6]
-  region         iso3c  date country pov_ofcl   gdp  gini lifeex    pop pov_intl
-  &lt;chr&gt;          &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
-1 Sub-Saharan A… AGO    1990 Angola        NA 5793.    NA   41.9 1.18e7    0.165
-2 Sub-Saharan A… AGO    1991 Angola        NA 5659.    NA   43.8 1.22e7    0.168
-3 Sub-Saharan A… AGO    1992 Angola        NA 5158.    NA   42.2 1.26e7    0.192
-4 Sub-Saharan A… AGO    1993 Angola        NA 3799.    NA   42.1 1.30e7    0.274
-5 Sub-Saharan A… AGO    1994 Angola        NA 3729.    NA   43.4 1.35e7    0.279
-6 Sub-Saharan A… AGO    1995 Angola        NA 4149.    NA   45.8 1.39e7    0.249
+<pre><code># A tibble: 5,029 × 24
+# Groups:   date [32]
+   region        iso3c  date country pov_ofcl   gdp  gini lifeex    pop pov_intl
+   &lt;chr&gt;         &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Sub-Saharan … AGO    1990 Angola        NA 5793.    NA   41.9 1.18e7    0.165
+ 2 Sub-Saharan … AGO    1991 Angola        NA 5659.    NA   43.8 1.22e7    0.168
+ 3 Sub-Saharan … AGO    1992 Angola        NA 5158.    NA   42.2 1.26e7    0.192
+ 4 Sub-Saharan … AGO    1993 Angola        NA 3799.    NA   42.1 1.30e7    0.274
+ 5 Sub-Saharan … AGO    1994 Angola        NA 3729.    NA   43.4 1.35e7    0.279
+ 6 Sub-Saharan … AGO    1995 Angola        NA 4149.    NA   45.8 1.39e7    0.249
+ 7 Sub-Saharan … AGO    1996 Angola        NA 4557.    NA   46.0 1.44e7    0.226
+ 8 Sub-Saharan … AGO    1997 Angola        NA 4728.    NA   46.3 1.49e7    0.215
+ 9 Sub-Saharan … AGO    1998 Angola        NA 4790.    NA   45.1 1.54e7    0.212
+10 Sub-Saharan … AGO    1999 Angola        NA 4740.    NA   45.4 1.59e7    0.214
+# ℹ 5,019 more rows
 # ℹ 14 more variables: pov_lmic &lt;dbl&gt;, pov_umic &lt;dbl&gt;, mean_lifeex &lt;dbl&gt;,
 #   sd_lifeex &lt;dbl&gt;, hl_lifeex &lt;lgl&gt;, ll_lifeex &lt;lgl&gt;, mean_gdp &lt;dbl&gt;,
 #   sd_gdp &lt;dbl&gt;, hl_gdp &lt;lgl&gt;, ll_gdp &lt;lgl&gt;, mean_gini &lt;dbl&gt;, sd_gini &lt;dbl&gt;,
@@ -416,17 +431,22 @@ Ignoring unknown parameters: `se`</code></pre>
 <span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>   poverty_indicators <span class="ot">&lt;-</span> pov_line <span class="sc">|&gt;</span></span>
 <span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>     <span class="fu">map_df</span>(<span class="sc">~</span> <span class="fu">calculate_FGT</span>(svy_2001_2010, .))</span>
 <span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>     <span class="fu">head</span>(poverty_indicators)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(poverty_indicators)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-   Year headcount pov_gap povseverity poverty_line
-  &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
-1  2001     0.542  0.423       0.380          2.15
-2  2002     0.498  0.361       0.313          2.15
-3  2003     0.450  0.295       0.241          2.15
-4  2004     0.389  0.216       0.158          2.15
-5  2005     0.319  0.134       0.0773         2.15
-6  2006     0.227  0.0655      0.0266         2.15</code></pre>
+<pre><code># A tibble: 30 × 5
+    Year   headcount  pov_gap povseverity poverty_line
+   &lt;int&gt;       &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+ 1  2001 0.542       4.23e- 1    3.80e- 1         2.15
+ 2  2002 0.498       3.61e- 1    3.13e- 1         2.15
+ 3  2003 0.450       2.95e- 1    2.41e- 1         2.15
+ 4  2004 0.389       2.16e- 1    1.58e- 1         2.15
+ 5  2005 0.319       1.34e- 1    7.73e- 2         2.15
+ 6  2006 0.227       6.55e- 2    2.66e- 2         2.15
+ 7  2007 0.124       2.14e- 2    5.40e- 3         2.15
+ 8  2008 0.0274      1.99e- 3    2.21e- 4         2.15
+ 9  2009 0.000000328 7.07e-10    2.14e-12         2.15
+10  2010 0           0           0                2.15
+# ℹ 20 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -475,18 +495,23 @@ Ignoring unknown parameters: `se`</code></pre>
 <pre><code>`summarise()` has grouped output by 'Year'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>      <span class="fu">head</span>(svy_2001_2010_lorenz )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(svy_2001_2010_lorenz )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-# Groups:   Year [1]
-  welfare cum_welfare cum_population  Year   bin
-    &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
-1       0           0           0.01  2001     1
-2       0           0           0.02  2001     2
-3       0           0           0.03  2001     3
-4       0           0           0.04  2001     4
-5       0           0           0.05  2001     5
-6       0           0           0.06  2001     6</code></pre>
+<pre><code># A tibble: 1,000 × 5
+# Groups:   Year [10]
+   welfare cum_welfare cum_population  Year   bin
+     &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+ 1       0           0           0.01  2001     1
+ 2       0           0           0.02  2001     2
+ 3       0           0           0.03  2001     3
+ 4       0           0           0.04  2001     4
+ 5       0           0           0.05  2001     5
+ 6       0           0           0.06  2001     6
+ 7       0           0           0.07  2001     7
+ 8       0           0           0.08  2001     8
+ 9       0           0           0.09  2001     9
+10       0           0           0.1   2001    10
+# ℹ 990 more rows</code></pre>
 </div>
 </div>
 <section id="gini-coefficient" class="level2">
@@ -522,17 +547,21 @@ Ignoring unknown parameters: `se`</code></pre>
 <span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>gini_final <span class="ot">&lt;-</span> gini <span class="sc">|&gt;</span></span>
 <span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
 <span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gini =</span> <span class="fu">md_compute_gini</span>(income, weight))</span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gini_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gini_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-   year  gini
-  &lt;dbl&gt; &lt;dbl&gt;
-1  2001 0.683
-2  2002 0.642
-3  2003 0.598
-4  2004 0.545
-5  2005 0.489
-6  2006 0.433</code></pre>
+<pre><code># A tibble: 10 × 2
+    year  gini
+   &lt;dbl&gt; &lt;dbl&gt;
+ 1  2001 0.683
+ 2  2002 0.642
+ 3  2003 0.598
+ 4  2004 0.545
+ 5  2005 0.489
+ 6  2006 0.433
+ 7  2007 0.387
+ 8  2008 0.343
+ 9  2009 0.306
+10  2010 0.271</code></pre>
 </div>
 </div>
 <p>##GRAPH</p>

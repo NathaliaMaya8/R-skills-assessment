@@ -46,7 +46,7 @@ GDP_byregion <- wdi |>
     ) |>
   rename (year = date)
 
-head(GDP_byregion)
+print(GDP_byregion)
 
 ```
 # 2. Aggregate stats
@@ -94,7 +94,7 @@ aggregate_estimates <- wdi |>
   select(estimate, region, date, pop, lifeex, gdp, pov_intl) |>
   arrange(match(estimate, c("mean", "sd", "min", "max", "median")))
   
-head(aggregate_estimates)
+print(aggregate_estimates)
 ```
 # 3. Find outliers 
 
@@ -125,7 +125,7 @@ outliers <- wdi |>
          
   )
 
-  head(outliers)
+  print(outliers)
 
 ```
 
@@ -181,7 +181,7 @@ outliers <- wdi |>
    poverty_indicators <- pov_line |>
      map_df(~ calculate_FGT(svy_2001_2010, .))
 
-     head(poverty_indicators)
+     print(poverty_indicators)
 
 ```
 # GRAPH
@@ -223,7 +223,7 @@ outliers <- wdi |>
        
        select(welfare, cum_welfare, cum_population, Year, bin)
 
-      head(svy_2001_2010_lorenz )
+      print(svy_2001_2010_lorenz )
 ```
 
 ## 6. Gini coefficient
@@ -259,7 +259,7 @@ md_compute_gini <- function(welfare, weight) {
 gini_final <- gini |>
   group_by(year) |>
   summarise(gini = md_compute_gini(income, weight))
-head(gini_final)
+print(gini_final)
 ```
 
 ##GRAPH
