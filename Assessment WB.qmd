@@ -3,6 +3,10 @@ title: Assessment WB
 Author: Nathalia Maya Scarpeta
 format: html
 editor: visual
+
+project:
+  type: website
+  output-dir: docs
 ---
 
 ```{r}
@@ -270,7 +274,7 @@ print(graph)
 
 ```
 
+copy NUL .nojekyll
 
-quarto publish gh-pages document.qmd
 
 
