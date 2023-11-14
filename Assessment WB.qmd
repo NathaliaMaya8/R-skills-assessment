@@ -10,6 +10,7 @@ project:
 ---
 
 ```{r message=FALSE, warning=FALSE}
+
 library(tidyverse)
 library(radiant.data)
 library (spatstat)
@@ -21,7 +22,7 @@ library(collapse)
 ```
 
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 tag      <- "202311081903"
 base_url <- "https://github.com/randrescastaneda/pub_data/raw/"
 data_url <- paste0(base_url, tag, "/data/Rtest1/")
@@ -32,7 +33,7 @@ wdi <-
 
 # 1. Summary statistics of GDP per capita by region
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 wdi_result_1 <- readr::read_rds(paste0(data_url, "wdi_summ_out.Rds"))
 
 GDP_byregion <- wdi |>
@@ -46,11 +47,11 @@ GDP_byregion <- wdi |>
     ) |>
   rename (year = date)
 
-print(GDP_byregion)
+rmarkdown::paged_table(GDP_byregion)
 
 ```
 # 2. Aggregate stats
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 # Group by region and date, calculate population-weighted statistics
 wdi_result_2 <- readr::read_rds(paste0(data_url, "wdi_agg_out.Rds"))
 
@@ -94,11 +95,11 @@ aggregate_estimates <- wdi |>
   select(estimate, region, date, pop, lifeex, gdp, pov_intl) |>
   arrange(match(estimate, c("mean", "sd", "min", "max", "median")))
   
-print(aggregate_estimates)
+rmarkdown::paged_table(aggregate_estimates)
 ```
 # 3. Find outliers 
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 wdi_outliers_out <- readr::read_rds(paste0(data_url, "wdi_outliers_out.Rds"))
 
 outliers <- wdi |>
@@ -125,13 +126,13 @@ outliers <- wdi |>
          
   )
 
-  print(outliers)
+ rmarkdown::paged_table(outliers)
 
 ```
 
-#Graph
+#Graph - Outliers
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
   ggplot(outliers) +
     geom_ribbon(
       aes(x = date, ymin = mean_lifeex - 2.5 * sd_lifeex, ymax = mean_lifeex + 2.5 * sd_lifeex),
@@ -149,7 +150,7 @@ outliers <- wdi |>
 
 # SIMULATED DATA
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
   l_svy <-
     readr::read_rds(paste0(data_url, "svy_sim_in1.Rds"))
   
@@ -181,10 +182,10 @@ outliers <- wdi |>
    poverty_indicators <- pov_line |>
      map_df(~ calculate_FGT(svy_2001_2010, .))
 
-     print(poverty_indicators)
+  rmarkdown::paged_table(poverty_indicators)
 
 ```
-# GRAPH
+# Graph - Headcount 
      
 ```{r warning=FALSE}
      ggplot(poverty_indicators, aes(group = poverty_line)) +
@@ -196,7 +197,7 @@ outliers <- wdi |>
 # 5. Lorenz curve
 
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
      svy_2001_2010_lorenz <- svy_2001_2010 |>
        select(Year, income, weight) |>
        group_by(Year) |>
@@ -223,12 +224,12 @@ outliers <- wdi |>
        
        select(welfare, cum_welfare, cum_population, Year, bin)
 
-      print(svy_2001_2010_lorenz )
+   rmarkdown::paged_table(svy_2001_2010_lorenz )
 ```
 
 # 6. Gini coefficient
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 gini <- l_svy |>
   map_df(~ as.data.frame(.x), .id = "year") |>
   mutate(year = as.numeric(gsub("[A-Za-z]", "", year)))
@@ -259,12 +260,12 @@ md_compute_gini <- function(welfare, weight) {
 gini_final <- gini |>
   group_by(year) |>
   summarise(gini = md_compute_gini(income, weight))
-print(gini_final)
+rmarkdown::paged_table(gini_final)
 ```
 
-# GRAPH - GINI
+# Graph - GINI
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 graph <- ggplot(gini_final, aes(x = year, y = gini)) +
   geom_line() +
   geom_point() +
