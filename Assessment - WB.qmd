@@ -1,7 +1,10 @@
+
 ---
 title: "Assessment - WB"
+Author: Nathalia Maya-Scarpeta
 format: html
 editor: visual
+quarto publish gh-pages document.qmd
 ---
 
 ```{r}
@@ -239,7 +242,7 @@ md_compute_gini <- function(welfare, weight) {
   # Area under the curve using
   
   v <- (cumsum(weighted_welfare_lag) + (weighted_welfare / 2)) * weight
-  auc <- sum(v) # Area Under the Curve
+  area_under <- sum(v) # Area Under the Curve
 
   # Area Under the Lorenz Curve
   area_under <- (area_under / sum(weight)) / sum(weighted_welfare)   # Normalizing
@@ -251,7 +254,22 @@ md_compute_gini <- function(welfare, weight) {
   return(gini)
 }
 
-results_gini <- gini |>
+gini_final <- gini |>
   group_by(year) |>
-  summarise(Gini = md_compute_gini(income, weight))
+  summarise(gini = md_compute_gini(income, weight))
+head(results_gini)
 ```
+
+##GRAPH
+
+```{r}
+extra4 <- ggplot(gini_final, aes(x = year, y = gini)) +
+  geom_line() +
+  geom_point() +
+  theme_minimal()
+
+print(extra4)
+
+```
+
+
